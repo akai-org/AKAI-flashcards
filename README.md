@@ -1,3 +1,10 @@
+# AKAI-flashcards
+
+An application to learn with flashcards
+
+Conceptual mind map
+https://coggle.it/diagram/YD_h1DMrDRIip3UH/t/-/57dd87e270bfd2e15febc24a95eca7d5190adfeda0b4175eea9a158a18fbbc3c
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
