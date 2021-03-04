@@ -1,11 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../style/GlobalStyle';
+import theme from '../../style/theme';
 
 const MainTemplate = ({ children }) => (
   <>
     <GlobalStyle />
-    {children}
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </>
 );
 
