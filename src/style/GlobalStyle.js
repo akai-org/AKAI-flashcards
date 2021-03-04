@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+
 *,
 *::before,
 *::after {
@@ -8,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: black;
+  font-family: 'nunito', sans-serif;
+  font-display: swap;
 }
 
 html,
