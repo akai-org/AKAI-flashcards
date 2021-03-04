@@ -1,11 +1,14 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../style/GlobalStyle';
+import theme from '../../style/theme';
+import '../../style/fonts/nunito/nunito.css';
 
 const MainTemplate = ({ children }) => (
   <>
     <GlobalStyle />
-    {children}
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </>
 );
 
