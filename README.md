@@ -5,6 +5,12 @@ An application to learn with flashcards
 Conceptual mind map
 https://coggle.it/diagram/YD_h1DMrDRIip3UH/t/-/57dd87e270bfd2e15febc24a95eca7d5190adfeda0b4175eea9a158a18fbbc3c
 
+Check the styleguide of app (ver. 1)
+https://ibb.co/whrfKbL
+
+Preview design:
+https://xd.adobe.com/view/1d60f76b-6cbf-43cd-8fc0-07690f1784a3-4833/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
