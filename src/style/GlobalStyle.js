@@ -8,8 +8,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
-  font-family: 'nunito', sans-serif;
+  font-family: 'Averta', sans-serif;
   font-display: swap;
 }
 
