@@ -5,7 +5,8 @@ import propTypes from 'prop-types';
 const StyledPageTemplate = styled.div`
   width: 992px;
 
-  height: 300px;
+  height: 1px;
+  min-height: calc(100vh - 70px);
   position: relative;
   margin: 0 auto;
 `;

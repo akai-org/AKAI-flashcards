@@ -6,7 +6,7 @@ const StyledNavbar = styled.nav`
   display: flex;
   position: sticky;
   top: 0;
-  left: 0;
+  z-index: 100;
 
   flex-direction: row;
   justify-content: space-between;

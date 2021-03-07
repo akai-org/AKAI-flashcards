@@ -5,9 +5,9 @@ const theme = {
     pink: '#f2385a',
     background: '#fff',
     border: '#D5D4D4',
-    container: '#ebebeb',
+    container: '#fbfbfb',
     darkFont: '#595454',
-    fairFont: '#ebebeb',
+    fairFont: '#fbfbfb',
   },
 };
 
