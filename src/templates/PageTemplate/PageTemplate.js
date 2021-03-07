@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 const StyledPageTemplate = styled.div`
-  width: 992px;
+  max-width: 992px;
 
   height: 1px;
   min-height: calc(100vh - 70px);
