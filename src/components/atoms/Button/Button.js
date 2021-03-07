@@ -3,7 +3,6 @@ import propTypes from 'prop-types';
 import StyledButton from './Button.styled';
 
 const Button = ({ children, width, height, radius, className }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <StyledButton type="button" width={width} height={height} radius={radius} className={className}>
     {children}
   </StyledButton>

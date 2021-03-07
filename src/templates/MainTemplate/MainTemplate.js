@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../style/GlobalStyle';
 import theme from '../../style/theme';
-import '../../style/fonts/Averta/averta.css';
+import 'style/fonts/Averta/averta.css';
 
 const MainTemplate = ({ children }) => (
   <>

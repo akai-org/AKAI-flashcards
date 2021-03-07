@@ -1,18 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from 'components/organisms/Navbar/Navbar';
-import MainTemplate from './components/templates/MainTemplate';
-
-const StyledASD = styled.div`
-  color: white;
-`;
+import Register from 'views/Register/Register';
+import PageTemplate from 'templates/PageTemplate/PageTemplate';
+import MainTemplate from './templates/MainTemplate/MainTemplate';
 
 const Root = () => (
   <MainTemplate>
     <Router>
       <Navbar />
-      <StyledASD> Hello Flashcards</StyledASD>
+      <PageTemplate>
+        <Switch>
+          <Route path="/" exact component={Register} />
+        </Switch>
+      </PageTemplate>
     </Router>
   </MainTemplate>
 );
