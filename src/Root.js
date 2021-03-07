@@ -11,7 +11,8 @@ const Root = () => (
       <Navbar />
       <PageTemplate>
         <Switch>
-          <Route path="/" exact component={Register} />
+          <Route path="/" exact component={() => <div>asd</div>} />
+          <Route path="/register" component={Register} />
         </Switch>
       </PageTemplate>
     </Router>

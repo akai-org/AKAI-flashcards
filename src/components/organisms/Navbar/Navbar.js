@@ -6,7 +6,9 @@ import StyledNavbar from './Navbar.styled';
 
 const Navbar = () => (
   <StyledNavbar className="navbar">
-    <Logo className="navbar__logo" />
+    <Link to="/">
+      <Logo className="navbar__logo" />
+    </Link>
     <div className="navbar__auth-buttons">
       <Button className="navbar__signin-button">Sign in</Button>
       <Link to="/register">

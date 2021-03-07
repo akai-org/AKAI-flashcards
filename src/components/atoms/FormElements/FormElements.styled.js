@@ -9,14 +9,15 @@ export const StyledInput = styled.div`
 
   & > input {
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.secon};
     width: 100%;
     height: 42px;
     outline: none;
-    border: none;
     padding: 0 8px;
     font-size: 2rem;
     font-weight: 400;
+
+    border: ${({ errorMessege }) => (errorMessege ? 'solid 3px red' : 'none')};
   }
 
   & > label {
@@ -37,6 +38,8 @@ export const StyledInput = styled.div`
   }
 
   & > div.input-border {
+    display: ${({ errorMessege }) => (errorMessege ? 'none' : 'block')};
+
     height: 2px;
     position: absolute;
     bottom: 0;
@@ -44,10 +47,20 @@ export const StyledInput = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.colors.secondary};
   }
+
+  &:after {
+    content: '${({ errorMessege }) => errorMessege || null}';
+    position: absolute;
+    top: 110%;
+    font-size: 1.2rem;
+    color: red;
+    right: 0;
+  }
 `;
 
 export const StyledCheckbox = styled.label`
   margin-top: 20px;
+  margin-bottom: 5px;
   position: relative;
   padding-left: 1.8rem;
   cursor: pointer;
@@ -56,6 +69,15 @@ export const StyledCheckbox = styled.label`
   & *::before,
   & *::after {
     box-sizing: content-box !important;
+  }
+
+  &:after {
+    content: '${({ errorMessege }) => errorMessege || null}';
+    position: absolute;
+    left: 0;
+    top: 110%;
+    font-size: 1.2rem;
+    color: red;
   }
 
   & input {
@@ -79,7 +101,7 @@ export const StyledCheckbox = styled.label`
     width: 1.6rem;
     background: rgba(241, 245, 248, 1);
     transition: background 250ms;
-    border: 1px solid rgba(184, 194, 204, 1);
+    border: solid 2px ${({ theme, errorMessege }) => (errorMessege ? 'red' : theme.colors.primary)};
     border-radius: 0.125rem;
   }
 
