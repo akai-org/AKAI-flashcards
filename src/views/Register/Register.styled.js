@@ -10,7 +10,7 @@ const StyledRegisterPage = styled.main`
   }
 
   .register {
-    width: 500px;
+    max-width: 500px;
     /* padding: 0 100px; */
 
     &__form {
