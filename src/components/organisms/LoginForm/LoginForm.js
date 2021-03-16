@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import * as Form from 'components/atoms/FormElements/FormElements';
 import styled from 'styled-components';
@@ -21,10 +22,18 @@ const Container = styled(StyledContainer)`
 
 const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    dispatch({ type: 'ADD_USER', payload: data });
     console.log(data);
   };
+
+  const users = useSelector((state) => state.users);
+
+  useEffect(() => {
+    console.log(users);
+  });
 
   return (
     <Container isVisible={isLoginPanelVisible}>
