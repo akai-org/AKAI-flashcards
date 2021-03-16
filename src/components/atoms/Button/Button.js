@@ -2,8 +2,15 @@ import React from 'react';
 import propTypes from 'prop-types';
 import StyledButton from './Button.styled';
 
-const Button = ({ children, width, height, radius, className, type }) => (
-  <StyledButton type={type} width={width} height={height} radius={radius} className={className}>
+const Button = ({ children, width, height, radius, className, type, ...props }) => (
+  <StyledButton
+    {...props}
+    type={type}
+    width={width}
+    height={height}
+    radius={radius}
+    className={className}
+  >
     {children}
   </StyledButton>
 );

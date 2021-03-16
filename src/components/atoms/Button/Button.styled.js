@@ -10,9 +10,9 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: ${({ width }) => width || null};
-  height: ${({ height }) => height || null};
-  border-radius: ${({ radius }) => radius || null};
+  width: ${({ width }) => `${width} !important` || null};
+  height: ${({ height }) => `${height} !important` || null};
+  border-radius: ${({ radius }) => `${radius} !important` || null};
 `;
 
 export default StyledButton;

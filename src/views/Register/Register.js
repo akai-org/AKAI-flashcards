@@ -7,7 +7,7 @@ import StyledRegisterPage from './Register.styled';
 const Register = () => (
   <StyledRegisterPage>
     {/* <Logo /> */}
-    <Container className="register">
+    <Container className="register" isVisible>
       <div className="register__c-buttons">
         <Button className="register__facebook-button">Register with Facebook</Button>
         <Button className="register__google-button">Register with Google</Button>
