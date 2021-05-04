@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { signInUser } from 'firebase/config/auth';
 import propTypes from 'prop-types';
 import * as Form from 'components/atoms/FormElements/FormElements';
@@ -23,9 +23,17 @@ const Container = styled(StyledContainer)`
 
 const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    signInUser(data);
+  const onSubmit = async (data) => {
+    try {
+      const userData = await signInUser(data);
+      if (userData) dispatch({ type: 'ADD_USER', payload: userData });
+    } catch (error) {
+      // error handling hook
+      console.log(error);
+      console.log(errors);
+    }
   };
 
   const users = useSelector((state) => state.users);

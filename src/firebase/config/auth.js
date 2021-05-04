@@ -30,7 +30,7 @@ export const signInUser = ({ email, password }) => {
   //   const dispatch = useDispatch();
 
   console.log(email, password);
-  firebase
+  const userData = firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
@@ -46,4 +46,6 @@ export const signInUser = ({ email, password }) => {
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
     });
+
+  return userData;
 };

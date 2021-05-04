@@ -17,6 +17,7 @@ const RegisterForm = () => {
       const userData = await registerUser(data);
       if (userData) dispatch({ type: 'ADD_USER', payload: userData });
     } catch (error) {
+      // error handling hook
       console.log(error);
       console.log(errors);
     }
