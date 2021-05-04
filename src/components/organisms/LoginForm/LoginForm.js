@@ -7,6 +7,7 @@ import * as Form from 'components/atoms/FormElements/FormElements';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 import StyledContainer from 'components/molecules/Container/Container';
+import useHandle from 'hooks/useHandle';
 import StyledLoginForm from './LoginForm.styled';
 
 const Container = styled(StyledContainer)`
@@ -24,6 +25,9 @@ const Container = styled(StyledContainer)`
 const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
+  const handleError = useHandle();
+
+  const Asd = handleError();
 
   const onSubmit = async (data) => {
     try {
@@ -46,6 +50,7 @@ const LoginForm = ({ isLoginPanelVisible }) => {
     <Container isVisible={isLoginPanelVisible}>
       <StyledLoginForm className="login" onSubmit={handleSubmit(onSubmit)}>
         <h2>Zaloguj się</h2>
+        {Asd}
         <Form.Input name="email" type="email" ref={register({})} errors={errors} />
         <Form.Input
           name="password"
