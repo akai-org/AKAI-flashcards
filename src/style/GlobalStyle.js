@@ -8,8 +8,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
-  font-family: 'nunito', sans-serif;
+  font-family: 'Averta', sans-serif;
   font-display: swap;
 }
 
@@ -26,7 +25,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 a {
