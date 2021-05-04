@@ -9,6 +9,11 @@ const rootReducer = (state = initialState, action) => {
       return state;
     }
 
+    case 'AUTHENTICATE_USER': {
+      console.log(action);
+      return state;
+    }
+
     default: {
       return state;
     }

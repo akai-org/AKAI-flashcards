@@ -8,6 +8,8 @@ import Register from 'views/Register/Register';
 import PageTemplate from 'templates/PageTemplate/PageTemplate';
 import MainTemplate from './templates/MainTemplate/MainTemplate';
 
+import 'firebase/config';
+
 const Root = () => (
   <Provider store={store}>
     <MainTemplate>

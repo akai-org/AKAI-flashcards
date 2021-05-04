@@ -9,7 +9,9 @@ const handleFormError = (name, errors) => {
     case 'validate':
       return `the passwords do not match`;
     case 'pattern':
-      return `no white spaces`;
+      return errors[name].message;
+    case 'emailPattern':
+      return `the e-mail is busy by another account`;
     default:
       return '';
   }
