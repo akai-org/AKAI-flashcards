@@ -1,27 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-
-const StyledDiv = styled.div`
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 200px;
-  background-color: ${({ theme }) => theme.colors.pink};
-  border-radius: 10px;
-  z-index: 100;
-  font-size: 1.6rem;
-  padding: 15px;
-  color: ${({ theme }) => theme.colors.background};
-`;
+import { useContext } from 'react';
+// import { render } from 'react-dom';
+import Notification from 'components/atoms/Notification/Notification';
+import WrapperContext from 'context/notification';
 
 const useHandle = (type = 'error') => {
   //   const isOpen = useState(false);
   //   const rootElemRef = React.useRef(document.body);
+  const { NotificationWrapperElement: Wrapper } = useContext(WrapperContext);
+
+  // const NotificationHelper = () => <Notification>asd</Notification>;
+
+  console.dir(Wrapper);
 
   console.log(type);
-  const handleError = () =>
-    ReactDOM.createPortal(<StyledDiv>{type}</StyledDiv>, document.querySelector('html'));
+  const handleError = () => {
+    Wrapper.children = {
+      ...Wrapper.children,
+      Notification,
+    };
+  };
 
   return handleError;
 };

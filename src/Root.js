@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from 'store';
 import LandingPage from 'views/LandingPage/LandingPage';
 import Register from 'views/Register/Register';
+// import NotificationWrapper from 'components/molecules/NotificationWrapper/NotificationWrapper';
 import PageTemplate from 'templates/PageTemplate/PageTemplate';
 import MainTemplate from './templates/MainTemplate/MainTemplate';
 

@@ -50,6 +50,14 @@ p {
   margin: 0;
   padding: 0;
 }
+
+#notification-wrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column-reverse;
+}
 `;
 
 export default GlobalStyle;

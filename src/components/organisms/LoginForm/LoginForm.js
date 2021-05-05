@@ -25,9 +25,10 @@ const Container = styled(StyledContainer)`
 const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
-  const handleError = useHandle();
-
-  const Asd = handleError();
+  const handle = useHandle();
+  handle();
+  // handleNotification();
+  // console.log(handleNotification());
 
   const onSubmit = async (data) => {
     try {
@@ -50,7 +51,6 @@ const LoginForm = ({ isLoginPanelVisible }) => {
     <Container isVisible={isLoginPanelVisible}>
       <StyledLoginForm className="login" onSubmit={handleSubmit(onSubmit)}>
         <h2>Zaloguj się</h2>
-        {Asd}
         <Form.Input name="email" type="email" ref={register({})} errors={errors} />
         <Form.Input
           name="password"
