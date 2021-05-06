@@ -1,44 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
+// import gsap from 'gsap';
 
 const StyledNotification = styled.div`
   width: 200px;
-  background-color: red;
   border-radius: 10px;
   z-index: 100;
   font-size: 1.6rem;
   padding: 15px;
   color: white;
-  opacity: 0;
-  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+  /* opacity: 0; */
   margin-top: 10px;
 
-  animation: notification-appear 0.3s forwards 0.1s ease-in-out;
+  /* transform: ${({ isHiding }) => (isHiding ? 'translateY(100%) !important' : null)}; */
+  /* stylelint-disable */
+  /* opacity: ${({ isHiding }) => (isHiding ? '0 !important' : null)}; */
+  /* stylelint-enable */
 
-  @keyframes notification-appear {
-    0% {
-      opacity: 0;
-      transform: translateY(100%);
+  ${({ type }) => {
+    switch (type) {
+      case 'info':
+        return `background-color: rgba(33, 150, 243);`;
+      case 'error':
+        return `background-color: rgba(244, 67, 54);`;
+      case 'warning':
+        return `background-color: rgba(255, 152, 0);`;
+      case 'success':
+        return `background-color: rgba(76, 175, 80, 0.6);`;
+      default:
+        return null;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  }}
 `;
 
-const Notification = () => {
-  const [isOpen, setOpen] = useState(true);
+const Notification = ({ children, ...props }) => {
+  const $notification = useRef(null);
 
-  const setClose = () => {
-    setTimeout(() => setOpen(false), 2000);
-  };
+  return (
+    <StyledNotification ref={$notification} {...props}>
+      {children}
+    </StyledNotification>
+  );
+};
 
-  useEffect(() => setClose());
-
-  if (isOpen) return <StyledNotification>asd</StyledNotification>;
-
-  return null;
+Notification.propTypes = {
+  type: propTypes.string.isRequired,
+  children: propTypes.oneOfType([propTypes.node, propTypes.arrayOf(propTypes.node)]).isRequired,
 };
 
 export default Notification;

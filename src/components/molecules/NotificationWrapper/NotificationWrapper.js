@@ -1,7 +1,7 @@
 // import Notification from 'components/atoms/Notification/Notification';
 import React from 'react';
 import styled from 'styled-components';
-import propTypes, { oneOfType } from 'prop-types';
+import propTypes from 'prop-types';
 
 const StyledNotificationWrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const NotificationWrapper = ({ children }) => (
 );
 
 NotificationWrapper.propTypes = {
-  children: oneOfType([propTypes.node, propTypes.arrayOf(propTypes.node)]),
+  children: propTypes.oneOfType([propTypes.node, propTypes.arrayOf(propTypes.node)]),
 };
 
 NotificationWrapper.defaultProps = {

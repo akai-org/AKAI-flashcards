@@ -58,6 +58,30 @@ p {
   display: flex;
   flex-direction: column-reverse;
 }
+
+.notification {
+  display: block;
+  position: relative;
+}
+
+.notification-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.notification-enter-active {
+  transition: transform 0.2s ease-in, opacity 0.4s ease-in;
+  transform: translateY(0);
+  opacity: 1;
+}
+.notification-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.notification-exit-active {
+  transition: transform 0.2s ease-in, opacity 0.4s ease-in;
+  transform: translateY(100%);
+  opacity: 0;
+}
 `;
 
 export default GlobalStyle;

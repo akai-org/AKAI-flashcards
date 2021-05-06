@@ -4,10 +4,12 @@ import * as Form from 'components/atoms/FormElements/FormElements';
 import Button from 'components/atoms/Button/Button';
 import { registerUser } from 'firebase/config/auth';
 import { useDispatch } from 'react-redux';
+import useHandle from 'hooks/useHandle';
 
 const RegisterForm = () => {
   const { register, handleSubmit, errors, watch } = useForm();
   const dispatch = useDispatch();
+  const handle = useHandle();
 
   const password = useRef({});
   password.current = watch('password', '');
@@ -15,11 +17,11 @@ const RegisterForm = () => {
   const onSubmit = async (data) => {
     try {
       const userData = await registerUser(data);
+      handle('registered in', 'success');
       if (userData) dispatch({ type: 'ADD_USER', payload: userData });
     } catch (error) {
+      handle(error, 'error');
       // error handling hook
-      console.log(error);
-      console.log(errors);
     }
   };
 

@@ -1,26 +1,14 @@
 import { useContext } from 'react';
-// import { render } from 'react-dom';
-import Notification from 'components/atoms/Notification/Notification';
-import WrapperContext from 'context/notification';
+import { SnackbarContext } from 'context/snackbar';
 
-const useHandle = (type = 'error') => {
-  //   const isOpen = useState(false);
-  //   const rootElemRef = React.useRef(document.body);
-  const { NotificationWrapperElement: Wrapper } = useContext(WrapperContext);
+const useHandle = () => {
+  const context = useContext(SnackbarContext);
 
-  // const NotificationHelper = () => <Notification>asd</Notification>;
-
-  console.dir(Wrapper);
-
-  console.log(type);
-  const handleError = () => {
-    Wrapper.children = {
-      ...Wrapper.children,
-      Notification,
-    };
+  const handle = (text, type = 'info') => {
+    context.addNotification({ text, type });
   };
 
-  return handleError;
+  return handle;
 };
 
 export default useHandle;

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { signInUser } from 'firebase/config/auth';
 import propTypes from 'prop-types';
 import * as Form from 'components/atoms/FormElements/FormElements';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 import StyledContainer from 'components/molecules/Container/Container';
@@ -26,18 +27,19 @@ const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
   const dispatch = useDispatch();
   const handle = useHandle();
-  handle();
-  // handleNotification();
-  // console.log(handleNotification());
+
+  const history = useHistory();
 
   const onSubmit = async (data) => {
     try {
       const userData = await signInUser(data);
-      if (userData) dispatch({ type: 'ADD_USER', payload: userData });
+      if (userData) {
+        handle('signed in', 'success');
+        history.push('/register');
+        dispatch({ type: 'ADD_USER', payload: userData });
+      }
     } catch (error) {
-      // error handling hook
-      console.log(error);
-      console.log(errors);
+      handle(error, 'error');
     }
   };
 
@@ -45,7 +47,7 @@ const LoginForm = ({ isLoginPanelVisible }) => {
 
   useEffect(() => {
     console.log(users);
-  });
+  }, []);
 
   return (
     <Container isVisible={isLoginPanelVisible}>
