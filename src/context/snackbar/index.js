@@ -11,11 +11,7 @@ export const SnackbarContext = createContext();
 const SnackbarProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([]);
 
-  // const activeNotifications = notifications.join(',');
-
   useEffect(() => {
-    console.log(notifications);
-
     if (notifications.length > 0) {
       const timer = setTimeout(
         () => setNotifications((notifications) => notifications.slice(0, notifications.length - 1)),

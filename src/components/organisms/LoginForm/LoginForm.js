@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useCookies } from 'react-cookie';
 import { signInUser } from 'firebase/config/auth';
 import propTypes from 'prop-types';
 import * as Form from 'components/atoms/FormElements/FormElements';
-import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 import StyledContainer from 'components/molecules/Container/Container';
@@ -25,6 +26,7 @@ const Container = styled(StyledContainer)`
 
 const LoginForm = ({ isLoginPanelVisible }) => {
   const { register, handleSubmit, errors } = useForm();
+  const [, setCookie] = useCookies();
   const dispatch = useDispatch();
   const handle = useHandle();
 
@@ -34,20 +36,15 @@ const LoginForm = ({ isLoginPanelVisible }) => {
     try {
       const userData = await signInUser(data);
       if (userData) {
+        setCookie('uid', userData.uid);
         handle('signed in', 'success');
-        history.push('/register');
         dispatch({ type: 'ADD_USER', payload: userData });
+        history.push('/panel');
       }
     } catch (error) {
       handle(error, 'error');
     }
   };
-
-  const users = useSelector((state) => state.users);
-
-  useEffect(() => {
-    console.log(users);
-  }, []);
 
   return (
     <Container isVisible={isLoginPanelVisible}>

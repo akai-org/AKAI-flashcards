@@ -35,6 +35,10 @@ const StyledNavbar = styled.nav`
     &__signin-button {
       background-color: ${({ theme }) => theme.colors.secondary};
     }
+
+    &__signout-button {
+      background-color: ${({ theme }) => theme.colors.pink};
+    }
   }
 `;
 

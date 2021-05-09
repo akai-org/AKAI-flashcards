@@ -21,21 +21,17 @@ export const registerUser = ({ email, password, confirm }) => {
         throw errorMessage;
       });
   }
-
   return response;
 };
 
 export const signInUser = ({ email, password }) => {
   //   const dispatch = useDispatch();
-
-  console.log(email, password);
   const userData = firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
       const { user } = userCredential;
-      console.log(user);
 
       return user;
 
@@ -48,4 +44,16 @@ export const signInUser = ({ email, password }) => {
     });
 
   return userData;
+};
+
+export const signOut = () => {
+  const response = firebase
+    .auth()
+    .signOut()
+    .then(() => true)
+    .catch((error) => {
+      throw error.errorMessage;
+    });
+
+  return response;
 };
