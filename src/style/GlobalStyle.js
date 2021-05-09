@@ -16,7 +16,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 html {
@@ -25,7 +24,6 @@ html {
 
 body {
   font-size: 1.6rem;
-  overflow-x: hidden;
 }
 
 a {

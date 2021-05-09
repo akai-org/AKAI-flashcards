@@ -13,8 +13,8 @@ const StyledNavbar = styled.nav`
   align-items: center;
 
   padding: 0 40px;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  box-shadow: 0 0 25px 5px rgb(28 15 25 / 25%);
+  background-color: white;
+  box-shadow: ${({ isScrolledTop }) => (isScrolledTop ? null : '0 0 5px 5px rgb(28 15 25 / 10%);')};
 
   .navbar {
     &__auth-buttons {

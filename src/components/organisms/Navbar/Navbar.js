@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as Logo } from 'assets/vectors/Logo.svg';
 import { Link } from 'react-router-dom';
 import useHandle from 'hooks/useHandle';
@@ -10,9 +10,30 @@ import LoginForm from '../LoginForm/LoginForm';
 
 const Navbar = () => {
   const [isLoginPanelVisible, changeLoginPanelVisibility] = useState(false);
+  const [isScrolledTop, changeScrollStatement] = useState(false);
   const handle = useHandle();
   const userData = useSelector((state) => state?.userData);
   const dispatch = useDispatch();
+
+  const handleScroll = (e) => {
+    const { scrollTop } = e.target.scrollingElement;
+    console.log(scrollTop);
+    console.dir(e);
+
+    if (scrollTop === 0) {
+      changeScrollStatement(true);
+    } else {
+      changeScrollStatement(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log('asd');
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('scrol', handleScroll);
+    };
+  });
 
   const handleSignOutButtonClick = async () => {
     try {
@@ -28,7 +49,7 @@ const Navbar = () => {
   };
 
   return (
-    <StyledNavbar className="navbar">
+    <StyledNavbar className="navbar" isScrolledTop={isScrolledTop}>
       <Link to="/">
         <Logo className="navbar__logo" />
       </Link>
