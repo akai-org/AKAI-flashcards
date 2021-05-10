@@ -18,8 +18,6 @@ const Navbar = () => {
 
   const handleScroll = (e) => {
     const { scrollTop } = e.target.scrollingElement;
-    console.log(scrollTop);
-    console.dir(e);
 
     if (scrollTop === 0) {
       changeScrollStatement(true);

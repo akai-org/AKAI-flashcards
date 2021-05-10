@@ -29,8 +29,6 @@ const SnackbarProvider = ({ children }) => {
       (notificationToDelete) => notification.text !== notificationToDelete.text
     );
 
-    console.log(filtered);
-
     setNotifications(filtered);
   };
 

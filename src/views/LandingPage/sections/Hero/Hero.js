@@ -3,7 +3,7 @@ import { ReactComponent as HeroIllustration } from 'assets/vectors/hero_guy.svg'
 import { ReactComponent as DotsIllustration } from 'assets/vectors/hero_dots.svg';
 import Underlined from 'components/atoms/Underilned/Underlined';
 import Button from 'components/atoms/Button/Button';
-import StyledFluidContainer from '../FluidContainer/FluidContainer.styled';
+import StyledFluidContainer from '../../../../components/molecules/FluidContainer/FluidContainer.styled';
 import StyledHero from './Hero.styled';
 
 const Hero = () => (

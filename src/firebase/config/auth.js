@@ -16,7 +16,6 @@ export const registerUser = ({ email, password, confirm }) => {
       .catch((error) => {
         // const errorCode = error.code;
         const errorMessage = error.message;
-        // console.log(errorCode, errorMessage);
         // ..
         throw errorMessage;
       });

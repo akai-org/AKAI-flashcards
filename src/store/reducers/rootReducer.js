@@ -5,7 +5,6 @@ const rootReducer = (state = initialState, action) => {
     case 'ADD_USER':
     case 'AUTHENTICATE_USER': {
       const userData = action.payload;
-      console.log(action.payload);
 
       const userDataToSetInState = {
         email: userData.email,
@@ -20,7 +19,6 @@ const rootReducer = (state = initialState, action) => {
     }
 
     // case 'AUTHENTICATE_USER': {
-    //   console.log(action);
     //   return state;
     // }
 

@@ -15,7 +15,6 @@ const useProtectedRoute = () => {
         handle('Access to protected route denied', 'error');
         history.push('/');
       } else {
-        console.log(user);
         dispatch({ type: 'AUTHENTICATE_USER', payload: user });
       }
     });

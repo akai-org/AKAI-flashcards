@@ -14,8 +14,6 @@ const useAuth = () => {
       history.push('/');
     }
   });
-
-  console.log(userData);
 };
 
 export default useAuth;
