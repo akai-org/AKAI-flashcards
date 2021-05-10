@@ -4,14 +4,25 @@ import styled from 'styled-components';
 const StyledRegisterPage = styled.main`
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${StyledContainer} {
     margin: 60px auto;
   }
 
   .register {
-    max-width: 500px;
-    /* padding: 0 100px; */
+    width: 500px;
+    padding: 0 30px;
+    border: none;
+    background-color: transparent;
+
+    ${({ theme }) => theme.breakpoints.mobileL} {
+      padding: 40px 80px;
+      border: initial;
+      background-color: initial;
+    }
 
     &__form {
       display: flex;

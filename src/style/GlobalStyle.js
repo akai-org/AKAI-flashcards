@@ -80,6 +80,21 @@ p {
   transform: translateY(100%);
   opacity: 0;
 }
+
+.containerAnim-enter {
+    opacity: 0;
+  }
+  .containerAnim-enter-active {
+    transition: opacity 0.2s ease-in;
+    opacity: 1;
+  }
+  .containerAnim-exit {
+    opacity: 1;
+  }
+  .containerAnim-exit-active {
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
+  }
 `;
 
 export default GlobalStyle;

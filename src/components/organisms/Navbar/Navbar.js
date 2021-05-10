@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from 'assets/vectors/Logo.svg';
 import { Link } from 'react-router-dom';
 import useHandle from 'hooks/useHandle';
 import { useSelector, useDispatch } from 'react-redux';
+// import { CSSTransition } from 'react-transition-group';
 import Button from 'components/atoms/Button/Button';
 import { signOut } from 'firebase/config/auth';
 import StyledNavbar from './Navbar.styled';
@@ -10,7 +11,7 @@ import LoginForm from '../LoginForm/LoginForm';
 
 const Navbar = () => {
   const [isLoginPanelVisible, changeLoginPanelVisibility] = useState(false);
-  const [isScrolledTop, changeScrollStatement] = useState(false);
+  const [isScrolledTop, changeScrollStatement] = useState(true);
   const handle = useHandle();
   const userData = useSelector((state) => state?.userData);
   const dispatch = useDispatch();
@@ -28,7 +29,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    console.log('asd');
     document.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       document.removeEventListener('scrol', handleScroll);
@@ -53,6 +53,7 @@ const Navbar = () => {
       <Link to="/">
         <Logo className="navbar__logo" />
       </Link>
+      {/* <div className="navbar__menu"> */}
       <div className="navbar__auth-buttons">
         {!userData?.uid && (
           <>
@@ -64,7 +65,10 @@ const Navbar = () => {
             >
               Sign in
             </Button>
-            <LoginForm isLoginPanelVisible={isLoginPanelVisible} />
+            <LoginForm
+              isLoginPanelVisible={isLoginPanelVisible}
+              setLoginVisible={changeLoginPanelVisibility}
+            />
             <Link to="/register">
               <Button className="navbar__register-button">Register</Button>
             </Link>
@@ -75,6 +79,7 @@ const Navbar = () => {
             Sign out
           </Button>
         )}
+        {/* </div> */}
       </div>
     </StyledNavbar>
   );
