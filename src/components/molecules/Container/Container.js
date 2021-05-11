@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
@@ -11,10 +11,20 @@ const StyledContainer = styled.div`
   position: relative;
 `;
 
-const Container = ({ children, type, isVisible, setVisibility, ...props }) => {
+const Container = ({ children, type, isVisible, setVisibility, classNames, timeout, ...props }) => {
+  useEffect(() => {
+    console.log(classNames);
+  }, [isVisible]);
+
   if (type === 'transitioned')
     return (
-      <CSSTransition unmountOnExit in={isVisible} timeout={200} classNames="containerAnim">
+      <CSSTransition
+        unmountOnExit
+        in={isVisible}
+        timeout={timeout}
+        classNames={classNames}
+        {...props}
+      >
         <StyledContainer {...props}>{children}</StyledContainer>
       </CSSTransition>
     );
@@ -26,12 +36,16 @@ Container.propTypes = {
   type: propTypes.string,
   isVisible: propTypes.bool,
   setVisibility: propTypes.func,
+  classNames: propTypes.string,
+  timeout: propTypes.number,
 };
 
 Container.defaultProps = {
   type: null,
   isVisible: null,
   setVisibility: null,
+  timeout: 200,
+  classNames: 'containerAnim',
 };
 
 export default Container;

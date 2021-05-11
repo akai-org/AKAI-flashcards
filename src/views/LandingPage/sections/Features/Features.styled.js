@@ -7,6 +7,14 @@ export const StyledFeatures = styled(Container)`
 
   position: relative;
   z-index: 10;
+
+  .features {
+    &__item {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
 `;
 
 export const StyledFeaturesFluid = styled(FluidContainer)`

@@ -14,13 +14,12 @@ const StyledRegisterPage = styled.main`
 
   .register {
     width: 500px;
-    padding: 0 30px;
-    border: none;
+    padding: 40px 80px;
     background-color: transparent;
 
-    ${({ theme }) => theme.breakpoints.mobileL} {
-      padding: 40px 80px;
-      border: initial;
+    ${({ theme }) => theme.breakpoints.mobileLDown} {
+      padding: 0 30px;
+      border: none;
       background-color: initial;
     }
 
